@@ -51,8 +51,8 @@ loss=0
 for i in range(1 , 50):  #  对row进行遍历
 
     temp= np.matrix([table.cell_value(i , 1), table.cell_value(i, 2), one]) # 录入特征向量
-    a=np.dot(w_T,temp)
-    y=np.r_[y,np.matrix([table.cell_value(i , 3)])]  # 录入标签向量
-    loss=y-a+loss
+    a=np.dot(w_T,temp.transpose())
+    y=table.cell_value(i , 3) # 录入标签向量
+    loss=y - a + loss
     print('\n')
 print(loss)
